@@ -8,6 +8,8 @@
 <body>
     <h1>Temperature Converter</h1>
 
+    <!-- celsius to fahrenheit conversion -->
+
     <label for="celsius">Enter Celsius:</label>
     <input type="number" id="celsius" placeholder="e.g., 25">
     <button id="convertBtn">Convert to °F</button>
@@ -15,21 +17,42 @@
     <p id="result"></p>
 
     <script>
-    const celsiusInput = document.getElementById('celsius');
-    const convertButton = document.getElementById('convertBtn');
-    const resultParagraph = document.getElementById('result');
+        const celsiusInput = document.getElementById('celsius');
+        const convertButton = document.getElementById('convertBtn');
+        const resultParagraph = document.getElementById('result');
 
-    function convertCelsiusToFahrenheit() {
-        const inputText = celsiusInput.value;
-        const celsius = Number(inputText);
+        function convertCelsiusToFahrenheit() {
+            const inputText = celsiusInput.value;
+            const celsius = Number(inputText);
 
-        const fahrenheit = celsius * 9 / 5 + 32;
-        resultParagraph.innerHTML = celsius + '°C = ' + fahrenheit + '°F';
-    }
+            const fahrenheit = celsius * 9 / 5 + 32;
+            resultParagraph.innerHTML = celsius + '°C = ' + fahrenheit + '°F';
+        }
 
-    convertButton.addEventListener('click', convertCelsiusToFahrenheit);
+        convertButton.addEventListener('click', convertCelsiusToFahrenheit);
+    </script>
 
-    
+    <!-- fahrenheit to celsius conversion -->
+    <br><br>
+    <label for="fahrenheit">Enter Fahrenheit:</label>
+    <input type="number" id="fahrenheit" placeholder="e.g., 77">
+    <button id="convertFtoC">Convert to °C</button>
+    <p id="resultFtoC"></p>
+
+    <script>
+        const fahrenheitInput = document.getElementById('fahrenheit');
+        const resultFtoC = document.getElementById('resultFtoC');
+        const convertFtoCButton = document.getElementById('convertFtoC');
+
+        function convertFahrenheitToCelsius() {
+            const inputText = fahrenheitInput.value;
+            const fahrenheit = Number(inputText);
+            
+            const celsius = (fahrenheit - 32) * 5 / 9;
+            resultFtoC.innerHTML = fahrenheit + '°F = ' + celsius + '°C';
+        }
+
+        convertFtoCButton.addEventListener('click', convertFahrenheitToCelsius);
     </script>
         
 </body>
