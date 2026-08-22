@@ -34,7 +34,29 @@
     <p id="result"></p>
 
     <script>
-    
+        const tempInput = document.getElementById('tempInput');
+        const conversionType = document.getElementById('conversionType');
+        const calculateBtn = document.getElementById('calculateBtn');
+        const resultParagraph = document.getElementById('result');
+        const inputLabel = document.getElementById('inputLabel');
+
+        function convertTemperature() {
+            const inputText = tempInput.value;
+            const temperature = Number(inputText);
+
+            const type = conversionType.value;
+            
+            if (type === 'cToF') {
+                const result = temperature * 9 / 5 + 32;
+                resultParagraph.innerHTML = temperature + '°C = ' + result + '°F';
+            } else if (type === 'fToC') {
+                const result = (temperature - 32) * 5 / 9;
+                resultParagraph.innerHTML = temperature + '°F = ' + result + '°C';
+            }
+        }
+
+        calculateBtn.addEventListener('click', convertTemperature);
+
     </script>
 </body>
 </html>
