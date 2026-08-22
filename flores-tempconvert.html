@@ -10,10 +10,27 @@
 
     <label for="celsius">Enter Celsius:</label>
     <input type="number" id="celsius" placeholder="e.g., 25">
-
     <button id="convertBtn">Convert to °F</button>
 
     <p id="result"></p>
 
+    <script>
+    const celsiusInput = document.getElementById('celsius');
+    const convertButton = document.getElementById('convertBtn');
+    const resultParagraph = document.getElementById('result');
+
+    function convertCelsiusToFahrenheit() {
+        const inputText = celsiusInput.value;
+        const celsius = Number(inputText);
+
+        const fahrenheit = celsius * 9 / 5 + 32;
+        resultParagraph.innerHTML = celsius + '°C = ' + fahrenheit + '°F';
+    }
+
+    convertButton.addEventListener('click', convertCelsiusToFahrenheit);
+
+    
+    </script>
+        
 </body>
 </html>
